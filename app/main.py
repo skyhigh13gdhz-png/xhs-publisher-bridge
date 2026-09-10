@@ -96,7 +96,9 @@ async def publish_from_record(req: PublishFromRecordRequest) -> dict[str, Any]:
                 detail=f"Cannot find field id for '{settings.feishu_field_images}'",
             )
 
-        await _safe_set_status(req, "生成中", error="")
+        await _safe_set_status(
+            req, "生成中", error=""
+        )
 
         image_urls = [
             make_signed_media_url(
